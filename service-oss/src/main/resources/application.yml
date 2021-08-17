@@ -1,0 +1,17 @@
+  server:
+    port: 8130
+  spring:
+    cloud:
+      nacos:
+        discovery:
+          server-addr: localhost:8848
+    profiles:
+      active: dev
+    application:
+      name: service-oss
+  aliyun:
+    oss:
+      endPoint: oss-cn-beijing.aliyuncs.com
+      keyId: LTAI5t8bWbCQUpRU2rpqZm9L
+      keySecret: tXPCNpmVJYUq06jxlU9P6wUKDEIbRf
+      bucketName: srb-file-wenshuo

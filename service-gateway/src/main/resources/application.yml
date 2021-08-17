@@ -1,0 +1,31 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: service-core
+          uri: lb://service-core
+          predicates:
+            - Path=/*/core/**
+        - id: service-sms
+          uri: lb://service-sms
+          predicates:
+            - Path=/*/sms/**
+        - id: service-oss
+          uri: lb://service-oss
+          predicates:
+            - Path=/*/oss/**
+
+
+  application:
+    name: service-gateway
+  profiles:
+    active: dev
+
+
+server:
+  port: 80

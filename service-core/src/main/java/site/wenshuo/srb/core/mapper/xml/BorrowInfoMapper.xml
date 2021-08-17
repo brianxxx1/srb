@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.wenshuo.srb.core.mapper.BorrowInfoMapper">
+
+    <select id="selectBorrowInfoList" resultType="site.wenshuo.srb.core.pojo.entity.BorrowInfo">
+        select bi.id,
+               bi.user_id,
+               bi.amount,
+               bi.period,
+               bi.borrow_year_rate,
+               bi.return_method,
+               bi.money_use,
+               bi.status,
+               bi.create_time,
+               bi.update_time,
+               bi.is_deleted,
+               b.name,
+               b.mobile,
+               bi.is_deleted as deleted
+        from borrow_info as bi
+                 left join borrower as b
+                               on b.user_id = bi.user_id
+                               where bi.is_deleted = 0;
+    </select>
+</mapper>

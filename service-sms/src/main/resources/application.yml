@@ -1,0 +1,53 @@
+server:
+  port: 8120
+
+spring:
+
+  profiles:
+    active: dev
+  application:
+    name: service-sms
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    timeout: 3000ms
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+  rabbitmq:
+    port: 5672
+    virtual-host: /
+    username: pc
+    password: 123456
+    host: 127.0.0.1
+
+tencent:
+  sms:
+    end-point: sms.tencentcloudapi.com
+    key-id: AKIDKQGq9BwQdZEcjaASUFjwtZy7zauxiCPL
+    key-secret: g5MM6ZlhLiodBRRAcngJf4C4fz1mGTP4
+    SmsSdkAppId: 1400553590
+    template-code: 1058363
+    sign-name: 个人技术练习brian
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 600000
+  sentinel:
+    enabled: true
+logging:
+  level:
+    site.wenshuo.srb.sms.client.CoreUserInfoClient: debug
