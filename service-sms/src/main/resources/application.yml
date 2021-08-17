@@ -34,11 +34,11 @@ spring:
 tencent:
   sms:
     end-point: sms.tencentcloudapi.com
-    key-id: AKIDKQGq9BwQdZEcjaASUFjwtZy7zauxiCPL
-    key-secret: g5MM6ZlhLiodBRRAcngJf4C4fz1mGTP4
-    SmsSdkAppId: 1400553590
-    template-code: 1058363
-    sign-name: 个人技术练习brian
+    key-id: // your keyId
+    key-secret: // your keySecret
+    SmsSdkAppId: // your appId
+    template-code: // your templateCode
+    sign-name: // your signName
 
 feign:
   client:
